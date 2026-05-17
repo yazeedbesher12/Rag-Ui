@@ -8,15 +8,16 @@ The API retrieves relevant CV chunks from Pinecone, sends them to an LLM through
 
 ```text
 cv-rag-api/
-├── app/
-│   ├── __init__.py
-│   ├── main.py      # FastAPI routes
-│   └── rag.py       # Pinecone + embeddings + OpenRouter RAG logic
-├── .env.example
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
+|-- app/
+|   |-- __init__.py
+|   |-- main.py          # FastAPI routes
+|   `-- rag.py           # Pinecone + embeddings + OpenRouter RAG logic
+|-- streamlit_app.py     # Simple Python UI
+|-- .env.example
+|-- Dockerfile
+|-- docker-compose.yml
+|-- requirements.txt
+`-- README.md
 ```
 
 ## 1. Create your `.env` file
@@ -55,7 +56,21 @@ Open:
 http://localhost:8000/docs
 ```
 
-## 3. Run with Docker
+## 3. Run the Python UI
+
+The Streamlit UI uses the same `.env` settings and calls the RAG pipeline directly:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Open:
+
+```text
+http://localhost:8501
+```
+
+## 4. Run with Docker
 
 ```bash
 docker compose up --build

@@ -8,3 +8,4 @@ langchain-openai==0.2.14
 langchain-community==0.3.13
 langchain-core==0.3.28
 pydantic==2.10.4
+streamlit==1.41.1
